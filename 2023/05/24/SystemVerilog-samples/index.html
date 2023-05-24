@@ -9,13 +9,15 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="32-bit integer multiplier12345678910111213141516171819202122module multiplier_32bit #(    parameter A_WIDTH &#x3D; 32,    parameter B_WIDTH &#x3D; 32,    parameter C_WIDTH &#x3D; 64    )(    input logic     clk,">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SystemVerilog samples">
 <meta property="og:url" content="http://example.com/2023/05/24/SystemVerilog-samples/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="32-bit integer multiplier12345678910111213141516171819202122module multiplier_32bit #(    parameter A_WIDTH &#x3D; 32,    parameter B_WIDTH &#x3D; 32,    parameter C_WIDTH &#x3D; 64    )(    input logic     clk,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-24T19:37:51.000Z">
-<meta property="article:modified_time" content="2023-05-24T19:37:51.884Z">
+<meta property="article:modified_time" content="2023-05-24T19:50:06.915Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -183,7 +185,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="32-bit-integer-multiplier"><a href="#32-bit-integer-multiplier" class="headerlink" title="32-bit integer multiplier"></a>32-bit integer multiplier</h2><figure class="highlight v"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> multiplier_32bit #(</span><br><span class="line">    <span class="keyword">parameter</span> A_WIDTH = <span class="number">32</span>,</span><br><span class="line">    <span class="keyword">parameter</span> B_WIDTH = <span class="number">32</span>,</span><br><span class="line">    <span class="keyword">parameter</span> C_WIDTH = <span class="number">64</span></span><br><span class="line">    )(</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">logic</span>     clk,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">logic</span>     resetn,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">logic</span>     [A_WIDTH-<span class="number">1</span>:<span class="number">0</span>] a,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">logic</span>     [B_WIDTH-<span class="number">1</span>:<span class="number">0</span>] b,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">logic</span>    [C_WIDTH-<span class="number">1</span>:<span class="number">0</span>] c</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Multiplier</span></span><br><span class="line">    <span class="keyword">always_ff</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> resetn) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (!resetn) <span class="keyword">begin</span></span><br><span class="line">            c &lt;= <span class="number">64&#x27;h0</span></span><br><span class="line">        <span class="keyword">end</span> <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">            c &lt;= a * b</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>System verilog 相对于 Verilog 引入了新的变量类型 <code>logic</code>，并保留了<code>wire</code>和<code>reg</code>。 <code>wire</code>用于连续赋值，而<code>reg</code>用于数据的存储。<code>logic</code>即可以被用于连续赋值也可以被用于存储，使编程变得更加灵活。</p>
+
       
     </div>
     
